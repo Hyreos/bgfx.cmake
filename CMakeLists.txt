@@ -26,6 +26,12 @@ if(MSVC AND (MSVC_VERSION GREATER_EQUAL 1914))
 	add_compile_options("/Zc:__cplusplus")
 endif()
 
+option(BGFX_SET_MVK "Enable MoltenVK" OFF)
+
+if (BGFX_SET_MVK)
+	add_definitions(-DBGFX_CONFIG_RENDERER_VULKAN)
+endif(BGFX_SET_MVK)
+
 include(CMakeDependentOption)
 
 option(BX_AMALGAMATED "Amalgamated bx build for faster compilation" OFF)
